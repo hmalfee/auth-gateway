@@ -1,6 +1,7 @@
-import Database from 'better-sqlite3';
 import fs from 'node:fs';
 import path from 'node:path';
+
+import Database from 'better-sqlite3';
 
 const dbPath = process.env.DATABASE_PATH ?? './data/app.sqlite';
 const dbDir = path.dirname(dbPath);

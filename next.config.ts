@@ -9,6 +9,7 @@ const lanIp =
         ?.address ?? '127.0.0.1';
 
 const nextConfig: NextConfig = {
+    output: 'standalone',
     allowedDevOrigins: [lanIp, `${lanIp}.sslip.io`],
 };
 

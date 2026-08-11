@@ -5,6 +5,7 @@
     "type": "module",
     "scripts": {
         "build": "next build",
+        "postbuild": "node scripts/next-standalone-postbuild.js",
         "check": "tsc --noEmit && pnpm lint && pnpm knip && pnpm format --check",
         "predev": "pnpx @better-auth/cli@latest migrate --config src/lib/auth.ts -y",
         "dev": "next dev",
@@ -43,7 +44,8 @@
         "prettier-plugin-sql": "^0.20.0",
         "prettier-plugin-tailwindcss": "^0.8.1",
         "tailwindcss": "^4",
-        "typescript": "^5"
+        "typescript": "^5",
+        "zx": "^8.8.5"
     },
     "packageManager": "pnpm@11.17.0"
 }

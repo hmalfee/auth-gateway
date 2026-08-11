@@ -29,6 +29,7 @@ RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 RUN apk add --no-cache libstdc++
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
+RUN mkdir -p /app/data && chown -R nextjs:nodejs /app/data
 
 # Copy the standalone build directly to /app
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./

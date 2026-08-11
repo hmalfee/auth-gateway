@@ -1,5 +1,6 @@
 engineStrict: true
 allowBuilds:
+    better-sqlite3: true
     sharp: false
     unrs-resolver: false
 optimisticRepeatInstall: false

@@ -14,6 +14,6 @@ export const auth = betterAuth({
         .split(',')
         .filter(Boolean),
     advanced: {
-        useSecureCookies: true,
+        useSecureCookies: !!process.env.BETTER_AUTH_USE_SECURE_COOKIES,
     },
 });

@@ -7,12 +7,10 @@
         "build": "next build",
         "postbuild": "node scripts/next-standalone-postbuild.js",
         "check": "tsc --noEmit && pnpm lint && pnpm knip && pnpm format --check",
-        "predev": "pnpx @better-auth/cli@latest migrate --config src/lib/auth.ts -y",
         "dev": "next dev",
         "format": "prettier --cache --write .",
         "knip": "knip",
         "lint": "eslint",
-        "prestart": "pnpx @better-auth/cli@latest migrate --config src/lib/auth.ts -y",
         "start": "next start"
     },
     "dependencies": {

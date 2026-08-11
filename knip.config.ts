@@ -2,6 +2,9 @@ import type { KnipConfig } from 'knip';
 
 const config: KnipConfig = {
     exclude: ['optionalPeerDependencies'], // Allows setting peer dependencies as optional
+    ignoreIssues: {
+        'src/components/ui/**': ['exports', 'types'],
+    },
     treatConfigHintsAsErrors: true,
     treatTagHintsAsErrors: true,
 };

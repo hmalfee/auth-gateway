@@ -68,10 +68,3 @@ export function isValidGatewaySession(token: string, domain: string) {
 export function revokeAllGatewaySessions() {
     db.prepare(`DELETE FROM gateway_sessions`).run();
 }
-
-// call from a cron / periodic task — SQLite doesn't expire rows on its own
-export function pruneExpiredGatewayRows() {
-    const now = Date.now();
-    db.prepare(`DELETE FROM gateway_handoffs WHERE expires_at < ?`).run(now);
-    db.prepare(`DELETE FROM gateway_sessions WHERE expires_at < ?`).run(now);
-}

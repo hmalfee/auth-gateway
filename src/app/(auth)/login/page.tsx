@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useState, useTransition } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 function LoginForm() {
+    const router = useRouter();
     const params = useSearchParams();
     const returnTo = params.get('return_to');
     const [error, setError] = useState<string | null>(null);
@@ -44,11 +45,13 @@ function LoginForm() {
                 }
 
                 if (returnTo) {
-                    window.location.href = `/api/gateway/authorize?return_to=${encodeURIComponent(returnTo)}`;
+                    router.push(
+                        `/api/gateway/authorize?return_to=${encodeURIComponent(returnTo)}`,
+                    );
                     return;
                 }
-                window.location.href = '/';
-            } catch (err) {
+                router.push('/');
+            } catch (_) {
                 setError('Network error occurred');
             }
         });

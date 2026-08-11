@@ -1,3 +1,13 @@
+engineStrict: true
 allowBuilds:
-  sharp: false
-  unrs-resolver: false
+    sharp: false
+    unrs-resolver: false
+optimisticRepeatInstall: false
+minimumReleaseAge: 10080
+preferFrozenLockfile: true
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
+trustPolicyExclude:
+    - 'undici-types@6.21.0'
+    - 'eslint-import-resolver-typescript@3.10.1'
+    - 'semver@6.3.1'

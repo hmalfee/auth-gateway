@@ -3,13 +3,13 @@ import path from 'node:path';
 
 import Database from 'better-sqlite3';
 
-const dbPath = process.env.DATABASE_PATH ?? './data/app.sqlite';
+const dbPath = './data/app.sqlite';
 const dbDir = path.dirname(dbPath);
 if (!fs.existsSync(dbDir)) {
     fs.mkdirSync(dbDir, { recursive: true });
 }
 
-const db = new Database(dbPath);
+const db = new Database(dbPath, { timeout: 5000 });
 db.pragma('journal_mode = WAL');
 db.pragma('foreign_keys = ON');
 

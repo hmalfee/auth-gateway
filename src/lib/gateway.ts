@@ -2,10 +2,8 @@ import { randomBytes, randomUUID } from 'crypto';
 
 import { db } from './db';
 
-const HANDOFF_TTL_MS = Number(process.env.GATEWAY_HANDOFF_TTL_MS ?? 60_000);
-const SESSION_TTL_MS = Number(
-    process.env.GATEWAY_SESSION_TTL_MS ?? 2_592_000_000,
-);
+const HANDOFF_TTL_MS = 60_000;
+const SESSION_TTL_MS = 2_592_000_000;
 
 export function createHandoff(domain: string, returnPath: string) {
     const token = randomUUID();

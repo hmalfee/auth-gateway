@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
             const res = NextResponse.redirect(cleanUrl, 302);
             res.cookies.set('gw_session', session.token, {
                 httpOnly: true,
-                secure: true,
+                secure: !!process.env.BETTER_AUTH_USE_SECURE_COOKIES,
                 sameSite: 'lax',
                 path: '/',
                 expires: new Date(session.expiresAt),

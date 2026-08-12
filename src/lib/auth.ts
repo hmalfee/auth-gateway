@@ -10,9 +10,6 @@ export const auth = betterAuth({
         enabled: true,
         minPasswordLength: 8,
     },
-    trustedOrigins: (process.env.TRUSTED_ORIGINS ?? '')
-        .split(',')
-        .filter(Boolean),
     advanced: {
         useSecureCookies: !!process.env.BETTER_AUTH_USE_SECURE_COOKIES,
     },
